@@ -10,18 +10,9 @@ import todoRoute from "./routes/todo-router.js";
 const app = express();
 
 app.use(express.json());
-const allowedOrigins = (process.env.CLIENT_ORIGINS || 'http://localhost:5173')
-    .split(',')
-    .map(origin => origin.trim());
+const allowedOrigin = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-            return callback(null, true);
-        } else {
-            return callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: allowedOrigin,
     methods: "GET, POST, PATCH, PUT, DELETE"
 }));
 
