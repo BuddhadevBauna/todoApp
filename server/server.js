@@ -10,8 +10,9 @@ import todoRoute from "./routes/todo-router.js";
 const app = express();
 
 app.use(express.json());
+const allowedOrigin = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: allowedOrigin,
     methods: "GET, POST, PATCH, PUT, DELETE"
 }));
 
