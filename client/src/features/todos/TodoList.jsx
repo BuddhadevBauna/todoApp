@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const TodoList = () => {
-    const { isLogIn, token } = useAuth();
+    const { isLoadingUserData, isLogIn, token } = useAuth();
     const [tasks, setTasks] = useState([]);
     const [isTasksLoading, setTasksLoading] = useState(true);
     const [newTask, setNewTask] = useState("");
@@ -53,6 +53,7 @@ const TodoList = () => {
         }
     }
 
+    if(isLoadingUserData) return null;
     if (!isLogIn) {
         return (
             <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] text-center px-4">
