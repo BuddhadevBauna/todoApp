@@ -65,7 +65,7 @@ const TodoList = () => {
     }
     if (isTasksLoading) return <p>Loading...</p>;
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+        <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-none sm:shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-center">To-Do List</h2>
             <div className="flex gap-3 mb-6">
                 <input

@@ -16,8 +16,8 @@ const Navbar = () => {
 
     if (isLoadingUserData) return <p>Loading...</p>;
     return (
-        <nav className="bg-blue-600 text-white px-10 py-5 flex items-center justify-between shadow-md">
-            <h1 className="text-2xl font-bold">Todo App</h1>
+        <nav className="bg-blue-600 text-white px-5 sm:px-10 py-5 flex items-center justify-between shadow-md">
+            <h1 className="text-lg font-bold whitespace-nowrap">Todo App</h1>
             <ul className="flex gap-2 text-lg">
                 {!isLogIn ? (
                     <>

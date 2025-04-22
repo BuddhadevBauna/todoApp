@@ -10,7 +10,7 @@ const Register = () => {
     const { values, handleChange, handleSubmit } = useForm(initialState, requestedMethod, url, formType);
 
     return (
-        <div className="max-w-md mx-auto mt-10 mb-20 p-4 bg-white rounded-lg" style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.15)" }}>
+        <div className="w-full max-w-md mx-auto mt-10 mb-20 p-4 bg-white rounded-lg shadow-none sm:shadow-lg">
             <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">Register</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
@@ -56,7 +56,7 @@ const Register = () => {
             </form>
             <hr className="my-6 border-t-2 border-dotted border-gray-300"/>
             <div>
-                <p className="flex gap-2">
+                <p className="flex items-center justify-center gap-2">
                     <span>Already have an account?</span>
                     <span><Link to={'/account/login'} className="text-blue-600 hover:underline font-semibold">Login</Link></span>
                 </p>
