@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import { connectDB } from "./utils/db.js";
 import statusRoute from "./routes/status-router.js";
 import authRoute from "./routes/auth-router.js";
@@ -9,6 +10,10 @@ import todoRoute from "./routes/todo-router.js";
 const app = express();
 
 app.use(express.json());
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: "GET, POST, PATCH, PUT, DELETE"
+}));
 
 app.use('/status', statusRoute);
 app.use('/auth', authRoute);
