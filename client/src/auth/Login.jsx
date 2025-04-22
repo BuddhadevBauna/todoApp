@@ -10,38 +10,42 @@ const Login = () => {
     const { values, handleChange, handleSubmit } = useForm(initialState, requestedMethod, url, formType);
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="max-w-md mx-auto mt-10 mb-20 p-4 bg-white rounded-lg" style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.15)" }}>
+            <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">Login</h2>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className="block mb-1 text-gray-700 font-medium">Email</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
                         value={values.email}
                         onChange={handleChange}
+                        autoComplete="off"
                         required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className="block mb-1 text-gray-700 font-medium">Password</label>
                     <input
                         type="password"
                         id="password"
                         name="password"
                         value={values.password}
                         onChange={handleChange}
+                        autoComplete="off"
                         required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" className="w-full bg-blue-600 text-white mt-2 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer">Login</button>
             </form>
-            <hr />
+            <hr className="my-6 border-t-2 border-dotted border-gray-300" />
             <div>
-                <p>
+                <p className="flex gap-2">
                     <span>Don't have an account?</span>
-                    <span><Link to={'/account/register'}>Register</Link></span>
+                    <span><Link to={'/account/register'} className="text-blue-600 hover:underline font-semibold">Register</Link></span>
                 </p>
             </div>
         </div>

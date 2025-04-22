@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const TodoList = () => {
     const { isLogIn, token } = useAuth();
     const [tasks, setTasks] = useState([]);
+    const [isTasksLoading, setTasksLoading] = useState(true);
     const [newTask, setNewTask] = useState("");
 
     const getTodos = async () => {
@@ -21,6 +22,8 @@ const TodoList = () => {
             }
         } catch (error) {
             toast.error(error?.response?.data?.message);
+        } finally {
+            setTasksLoading(false);
         }
     }
 
@@ -50,18 +53,31 @@ const TodoList = () => {
         }
     }
 
-    if(!isLogIn) return <p>You must be logged in to access this page.</p>;
+    if (!isLogIn) {
+        return (
+            <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] text-center px-4">
+                <p className="text-xl font-semibold text-red-600 mb-4">
+                    You must be logged in to access this page.
+                </p>
+            </div>
+        )
+    }
+    if (isTasksLoading) return <p>Loading...</p>;
     return (
-        <div>
-            <h2>To-Do List</h2>
-            <div>
+        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4 text-center">To-Do List</h2>
+            <div className="flex gap-3 mb-6">
                 <input
                     type="text"
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
                     placeholder="Enter your task..."
+                    className="flex-grow border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <button onClick={handleAddTask}>Add</button>
+                <button
+                    onClick={handleAddTask}
+                    className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
+                >Add</button>
             </div>
             <ul>
                 {tasks.map((task, index) => (

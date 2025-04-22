@@ -5,7 +5,7 @@ import Footer from "../components/Footer.jsx";
 
 const Root = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             <Navbar />
             <Outlet />
             <Footer />
