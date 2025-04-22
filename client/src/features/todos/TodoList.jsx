@@ -51,18 +51,8 @@ const TodoList = () => {
         } catch (error) {
             toast.error(error?.response?.data?.message);
         }
-    }
+    };
 
-    if(isLoadingUserData) return null;
-    else if (!isLogIn) {
-        return (
-            <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] text-center px-4">
-                <p className="text-xl font-semibold text-red-600 mb-4">
-                    You must be logged in to access this page.
-                </p>
-            </div>
-        )
-    }
     if (isTasksLoading) return <p>Loading...</p>;
     return (
         <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-none sm:shadow-lg">
