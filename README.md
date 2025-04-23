@@ -1,5 +1,5 @@
 # 📝 Todo List App
-This is a simple React Todo App with authentication and CRUD functionality.
+MERN-Based Todo Application with Secure Authentication and Task Management
 
 ---
 
@@ -27,6 +27,7 @@ This is a simple React Todo App with authentication and CRUD functionality.
 - Node.js
 - Express.js
 - MongoDB (with Mongoose)
+- Hash password (with bcypt)
 - JWT Authentication
 
 ---
