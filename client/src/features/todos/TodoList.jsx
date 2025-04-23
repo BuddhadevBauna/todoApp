@@ -33,7 +33,8 @@ const TodoList = () => {
         }
     }, [isLogIn]);
 
-    const handleAddTask = async () => {
+    const handleAddTask = async (e) => {
+        e.preventDefault();
         try {
             const url = `${import.meta.env.VITE_API_BASE_URL}/todos`;
             const response = await axios.post(url, { title: newTask }, {
@@ -57,19 +58,21 @@ const TodoList = () => {
     return (
         <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-none sm:shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-center">To-Do List</h2>
-            <div className="flex gap-3 mb-6">
+            <form onSubmit={handleAddTask} className="flex gap-3 mb-6">
                 <input
                     type="text"
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
+                    minLength={5}
+                    maxLength={50}
                     placeholder="Enter your task..."
                     className="flex-grow border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
-                    onClick={handleAddTask}
+                    type="submit"
                     className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
                 >Add</button>
-            </div>
+            </form>
             <ul>
                 {tasks.map((task, index) => (
                     <TodoItem

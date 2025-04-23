@@ -11,7 +11,7 @@ const Register = () => {
 
     return (
         <div className="w-full max-w-md mx-auto mt-10 mb-20 p-4 bg-white rounded-lg shadow-none sm:shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">Register</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-center text-gray-800">Register</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
                     <label htmlFor="userName" className="block mb-1 text-gray-700 font-medium">User Name</label>
@@ -21,6 +21,8 @@ const Register = () => {
                         name="userName"
                         value={values.userName}
                         onChange={handleChange}
+                        minLength={3}
+                        maxLength={25}
                         autoComplete="off"
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -47,6 +49,8 @@ const Register = () => {
                         name="password"
                         value={values.password}
                         onChange={handleChange}
+                        minLength={4}
+                        maxLength={25}
                         autoComplete="off"
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

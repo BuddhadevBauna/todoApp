@@ -11,11 +11,13 @@ export const AuthProvider = ({ children }) => {
 
     const storeTokenInLS = (token) => {
         setToken(token);
+        setIsLoadingUserData(true);
         localStorage.setItem('jwtToken', token);
     };
 
     const removeTokenFromLS = () => {
         setToken(null);
+        setIsLoadingUserData(true);
         localStorage.removeItem('jwtToken');
     }
 
