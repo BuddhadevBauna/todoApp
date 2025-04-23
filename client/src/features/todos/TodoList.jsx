@@ -76,7 +76,7 @@ const TodoList = () => {
             <ul>
                 {tasks.map((task, index) => (
                     <TodoItem
-                        key={index}
+                        key={task._id}
                         task={task}
                         setTasks={setTasks}
                     />

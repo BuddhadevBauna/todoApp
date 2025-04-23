@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../store/context/auth-context";
 import { FaTrashAlt } from "react-icons/fa";
@@ -8,6 +8,10 @@ const TodoItem = ({ task, setTasks }) => {
     const { _id, title } = task;
     const [status, setStatus] = useState(task?.status);
     const { token } = useAuth();
+
+    useEffect(() => {
+        setStatus(task?.status);
+    }, [task]);
 
     const handleStatusChange = async () => {
         try {
