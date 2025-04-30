@@ -2,7 +2,7 @@ import z from "zod";
 import { validateStringSchema } from "./validators.js";
 
 const createTodoSchema = z.object({
-    title: validateStringSchema("Title", 5, 50)
+    title: validateStringSchema("Title", 5, 500)
 });
 
 const updateTodoSchema = z.object({

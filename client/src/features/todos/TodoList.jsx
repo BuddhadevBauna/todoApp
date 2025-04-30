@@ -64,7 +64,7 @@ const TodoList = () => {
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
                     minLength={5}
-                    maxLength={50}
+                    maxLength={500}
                     placeholder="Enter your task..."
                     className="flex-grow border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
